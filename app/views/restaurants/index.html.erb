@@ -1,0 +1,16 @@
+<h1> LISTE DE BON RESTOS (GRAS) </h1>
+
+<hr>
+<% @restaurants.each do |restaurant| %>
+
+  <div>
+    <%= restaurant.name %>
+    <%= restaurant.address %>
+    <%= restaurant.phone_number %>
+    <%= link_to 'Details', restaurant %>
+    <hr>
+  </div>
+
+<% end %>
+
+<%= link_to 'Create a new Restaurant', new_restaurant_path %>

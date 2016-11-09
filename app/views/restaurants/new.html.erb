@@ -1,0 +1,21 @@
+<h1> ADD A RESTO MA BONNE GUEULE! </h1>
+
+<% if @restaurant.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @restaurant.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= simple_form_for @restaurant do |f| %>
+  <%= f.input :name, label: 'Name', placeholder: 'Restaurant Name' %>
+  <%= f.input :address, label: 'Address', placeholder: 'Restaurant Address' %>
+  <%= f.input :phone_number, label: 'Phone',placeholder: '(666)-666-6666' %>
+  <%= f.input :category, collection: ["chinese", "italian", "japanese", "french", "belgian"], prompt: "Select Category" %>
+  <%= f.submit "Add a Restaurant!", class: "btn btn-primary" %>
+<% end %>
+
+<%= link_to 'Back', restaurants_path %>

@@ -1,0 +1,45 @@
+<div>
+  <h2>NAME</h2>
+  <h4> <%= @restaurant.name %> </h4>
+</div>
+<hr>
+
+<div>
+  <h2>ADDRESS</h2>
+  <h4> <%= @restaurant.address %> </h4>
+</div>
+<hr>
+
+<div>
+  <h2>PHONE NUMBER</h2>
+  <h4> <%= @restaurant.phone_number %> </h4>
+</div>
+<hr>
+
+<div>
+  <h2>ID</h2>
+  <h4> <%= @restaurant.id %> </h4>
+</div>
+<hr>
+
+
+<% @restaurant.reviews.each do |review| %>
+  <div>
+    <h2>Review</h2>
+    <h4> <%= review.content %> </h4>
+  </div>
+  <div>
+    <h2>Rating</h2>
+    <h4> <%= review.rating %> </h4>
+  </div>
+  <hr>
+<% end %>
+
+
+
+<div>
+  <%= link_to 'New Review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary'  %>
+</div>
+
+<%= link_to 'Back', restaurants_path %>
+
